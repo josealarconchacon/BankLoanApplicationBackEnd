@@ -41,7 +41,7 @@ router.get(
   passport.authenticate("google", { session: false }),
   (req, res) => {
     const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET);
-    res.redirect(`http://localhost:4200/login?token=${token}`);
+    res.redirect(`http://localhost:4209/login?token=${token}`);
   }
 );
 
