@@ -6,6 +6,7 @@ require("dotenv").config(); // Load environment variables
 require("./auth/passportConfig");
 const authRoutes = require("./routes/authRoutes");
 const applicationRoutes = require("./routes/applicationRoutes");
+const bankRoutes = require("./routes/bankRoutes");
 
 const app = express();
 app.use(cors());
@@ -22,9 +23,11 @@ mongoose
 // Routes
 app.use("/auth", require("./routes/authRoutes"));
 app.use("/application", require("./routes/applicationRoutes"));
+app.use("/bank", require("./routes/bankRoutes"));
 app.use(express.json());
 app.use("/api", authRoutes);
-app.use("/api", applicationRoutes)
+app.use("/api", applicationRoutes);
+app.use("/api", bankRoutes);
 
 // Start server
 const PORT = process.env.PORT || 3000; // Changed port number
